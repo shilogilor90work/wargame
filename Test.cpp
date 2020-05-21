@@ -1,4 +1,5 @@
 
+#include "doctest.h"
 
 #include "DemoGame.hpp"
 #include "FootSoldier.hpp"
