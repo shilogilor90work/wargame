@@ -3,7 +3,7 @@
 #include "DemoGame.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
-#include "paramedic.hpp"
+#include "Paramedic.hpp"
 #include "paramedicCommander.hpp"
 #include "Sniper.hpp"
 #include "SniperCommander.hpp"
