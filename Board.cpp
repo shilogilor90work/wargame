@@ -1,6 +1,5 @@
 
 #include "Board.hpp"
-#include <iostream>
 
 namespace WarGame {
 

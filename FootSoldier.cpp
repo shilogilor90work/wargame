@@ -20,14 +20,16 @@ namespace WarGame {
     {
       for(int j=0; j<board->board[i].size(); j++)
       {
-        if (board->board[i][j] != nullptr && board->board[i][j]->get_team() != this->team && (abs(row - i) + abs(column)) < distance)
+        if (board->board[i][j] != nullptr && board->board[i][j]->get_team() != this->team && (abs(row - i) + abs(column-j)) < distance)
         {
+          distance = (abs(row - i) + abs(column-j));
           opponent = board->board[i][j];
           opponent_row = i;
           opponent_column = j;
         }
       }
     }
+
     if (opponent == nullptr){return;}
     opponent->health -= damage;
     if (opponent->health <= 0)

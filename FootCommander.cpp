@@ -12,15 +12,16 @@ namespace WarGame {
   void FootCommander::attack(Board* board, int row, int column)
   {
     int distance = 9999999;
-    Soldier* opponent;
+    Soldier* opponent = nullptr;
     int opponent_row;
     int opponent_column;
     for(int i=0; i<board->board.size(); i++)
     {
       for(int j=0; j<board->board[i].size(); j++)
       {
-        if (board->board[i][j] != nullptr && board->board[i][j]->get_team() != this->team && (abs(row - i) + abs(column)) < distance)
+        if (board->board[i][j] != nullptr && board->board[i][j]->get_team() != this->team && (abs(row - i) + abs(column - j)) < distance)
         {
+          distance = (abs(row - i) + abs(column-j));
           opponent = board->board[i][j];
           opponent_row = i;
           opponent_column = j;
@@ -31,6 +32,7 @@ namespace WarGame {
         }
       }
     }
+    if (opponent == nullptr){return;}
     opponent->health -= damage;
     if (opponent->health <= 0)
     {

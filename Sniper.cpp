@@ -12,7 +12,7 @@ namespace WarGame {
   void Sniper::attack(Board* board , int row, int column)
   {
     int most_health = 0;
-    Soldier* opponent;
+    Soldier* opponent = nullptr;
     int opponent_row;
     int opponent_column;
     for(int i=0; i<board->board.size(); i++)
@@ -27,6 +27,7 @@ namespace WarGame {
         }
       }
     }
+    if (opponent == nullptr){return;}
     opponent->health -= damage;
     if (opponent->health <= 0)
     {
